@@ -87,6 +87,11 @@ jobs:
           ./redpill_tool_chain.sh add https://github.com/jumkey/redpill-load/raw/develop/redpill-boot-wait/rpext-index.json
           ./redpill_tool_chain.sh add https://raw.githubusercontent.com/pocopico/rp-ext/master/mpt3sas/rpext-index.json
           ./redpill_tool_chain.sh add https://github.com/jumkey/redpill-load/raw/develop/redpill-dtb/rpext-index.json
+          ./redpill_tool_chain.sh add https://raw.githubusercontent.com/pocopico/rp-ext/master/8139cp/rpext-index.json
+          ./redpill_tool_chain.sh add https://raw.githubusercontent.com/pocopico/rp-ext/master/8139too/rpext-index.json
+          ./redpill_tool_chain.sh add https://raw.githubusercontent.com/pocopico/rp-ext/master/hv_netvsc/rpext-index.json
+          ./redpill_tool_chain.sh add
+          ./redpill_tool_chain.sh add
       
       - name: 添加扩展驱动[dva3221]
         if: matrix.platform == 'dva3221'
@@ -98,12 +103,7 @@ jobs:
         run: |
           ./redpill_tool_chain.sh add https://github.com/tossp/redpill-tool-chain/raw/master/extensions/redpill-misc.json
 
-      - name: 添加 jumkey.dtb !!!Create your own device tree binary!!!
-        if: matrix.platform == 'ds920p' || matrix.platform == 'ds1621p' || matrix.platform == 'ds2422p'
-        run: |
-          ./redpill_tool_chain.sh add https://github.com/tossp/redpill-tool-chain/raw/master/extensions/redpill-dtb.json
-          echo '!!!Create your own device tree binary!!!'
-          echo 'see https://github.com/jumkey/redpill-load/blob/develop/redpill-dtb/README.md'
+
 
       - name: 预处理PAT
         if: endsWith(matrix.version, '42661') && startsWith(matrix.platform, 'ds361')
